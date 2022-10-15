@@ -14,10 +14,57 @@
         <module>exam-service-user</module>
     </modules>
 
+    <!--
+            1. 聚合工程可以分为顶级项目（顶级工程，父工程）与子工程（子module模块），
+                这两者的关系其实就是父子继承的关系，子工程在maven中可以称之为module，
+                模块与模块之间是平级的，是可以相互依赖的。
+            2. 子模块可以使用顶级工程中所有的资源（依赖），子模块之间如果有要使用资源的话，必须构建依赖（构建关系）
+            3. 一个顶级工程是可以由多个不同的子工程共同组合而成。
+        -->
+    <packaging>pom</packaging>
+
+
+    <parent>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.2.5.RELEASE</version>
+    </parent>
+
+
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+
+        <mysql-connector-java.version>5.1.41</mysql-connector-java.version>
+        <mybatis-spring-boot-starter.version>2.1.0</mybatis-spring-boot-starter.version>
+        <mapper-spring-boot-starter.version>2.1.5</mapper-spring-boot-starter.version>
+        <pagehelper-spring-boot-starter.version>1.2.12</pagehelper-spring-boot-starter.version>
+
+        <slf4j.version>1.7.21</slf4j.version>
+        <joda-time.version>2.10.6</joda-time.version>
     </properties>
 
-    <packaging>pom</packaging>
+    <dependencyManagement>
+        <dependencies>
+            
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <!-- Java 编译 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
