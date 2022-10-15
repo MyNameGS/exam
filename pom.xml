@@ -12,6 +12,7 @@
         <module>exam-model</module>
         <module>exam-service-api</module>
         <module>exam-service-user</module>
+        <module>exam-service-article</module>
     </modules>
 
     <!--
@@ -47,7 +48,7 @@
 
     <dependencyManagement>
         <dependencies>
-            
+
         </dependencies>
     </dependencyManagement>
 
